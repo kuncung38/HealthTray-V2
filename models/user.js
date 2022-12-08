@@ -16,17 +16,46 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Transaction)
       User.hasOne(models.Profile)
     }
+
+    static getAllUserDataWithId(UserId) {
+      return User.findByPk(UserId, {
+        where: {
+            role: 'user'
+        },
+        include: {
+            all: true
+        }
+      })
+    }
   }
   User.init({
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
+        notNull : {
+          msg: `Email must be filled`
+        },
+        notEmpty : {
+          msg: `Email must be filled`
+        },
         isEmail : {
           msg: `Must be correct Email format`
         }
       }
     },
-    password: DataTypes.STRING,
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull : {
+          msg: `Password must be filled`
+        },
+        notEmpty : {
+          msg: `Password must be filled`
+        }
+      }
+    },
     role: {
       type: DataTypes.STRING,
       validate: {

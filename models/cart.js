@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Cart.init({
-    isClosed: DataTypes.BOOLEAN,
     TransactionId: DataTypes.INTEGER,
     ItemId: DataTypes.INTEGER
   }, {

@@ -19,10 +19,13 @@
   "homepage": "https://github.com/kuncung38/HealthTray-V2#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "pg": "^8.8.0",
-    "sequelize": "^6.26.0"
+    "sequelize": "^6.26.0",
+    "stripe": "^11.2.0"
   },
   "devDependencies": {
     "sequelize-cli": "^6.5.2"

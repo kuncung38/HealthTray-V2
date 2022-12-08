@@ -1,0 +1,23 @@
+<%-include("./_partials/headerShopper")-%>
+<main>
+    
+        <table>
+            <thead>
+                <th style="width: 18rem;">Name</th>
+                <th>Image</th>
+                <th>Amount</th>
+                <th>Category</th>
+            </thead>
+
+            <% cartData.Items.forEach (el => { %>
+
+                <tr>
+                    <td><%= el.name %></td>
+                    <td><img src="<%= el.img %>"></td>
+                    <td><%= el.toCurrency() %></td>
+                    <td><%= el.category %></td>
+                </tr>
+
+            <% }) %> 
+        </table>
+</main>

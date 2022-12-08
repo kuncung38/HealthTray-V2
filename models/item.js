@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       Item.belongsToMany(models.Transaction, {through: models.Cart})
       Item.hasMany(models.Cart)
     }
+
+    toCurrency() {
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(this.price)
+    }
   }
   Item.init({
     name: DataTypes.STRING,

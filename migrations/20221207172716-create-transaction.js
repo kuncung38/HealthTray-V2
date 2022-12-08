@@ -12,6 +12,9 @@ module.exports = {
       totalPrice: {
         type: Sequelize.INTEGER
       },
+      isCompleted: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

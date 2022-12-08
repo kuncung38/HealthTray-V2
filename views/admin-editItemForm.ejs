@@ -1,0 +1,56 @@
+<%-include("./_partials/headerAdmin")-%>
+<style>
+    main {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input, select {
+        width: 95%;
+    }
+
+</style>
+<body>
+    <main>
+        <h1>Add New Item</h1>
+        <form action="/admin/item/<%= data.id %>/edit" method="POST">
+            <div>
+                <p>Name</p>
+                <input type="text" name="name" value="<%= data.name %>">
+            </div>
+
+            <div>
+                <p>Category</p>
+                <select name="category">
+                    <option value="carbs" <%= data.category === 'carbs' ? 'selected' : '' %> >carbs</option>
+                    <option value="protein" <%= data.category === 'protein' ? 'selected' : '' %>>protein</option>
+                    <option value="veggie" <%= data.category === 'veggie' ? 'selected' : '' %>>veggie</option>
+                    <option value="drink" <%= data.category === 'drink' ? 'selected' : '' %>>drink</option>
+                </select>
+            </div>
+
+            <div>
+                <p>Price</p>
+                <input type="number" name="price" min="1000" value="<%= data.price %>">
+            </div>
+
+            <div>
+                <p>Image</p>
+                <input type="text" name="img" value="<%= data.img %>">
+            </div>
+
+            <input type="submit" value="Save Change">
+
+
+        </form>
+    </main>
+</body>
+</html>

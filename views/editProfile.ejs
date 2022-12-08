@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTray</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #76a55a;
+        }
+
+        main {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width:30%;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            padding: 3rem;
+            border: 2px solid white;
+            border-radius: 0.75rem;
+            background: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        form div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        input, textarea {
+            width: 95%;
+            min-height: 2rem;
+            padding: 0.5rem;
+        }
+
+        textarea {
+            min-height: 5rem;
+            padding: 0.5rem;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1 style="text-align: center;">Edit your Profile</h1>
+        <form action="/editProfile/<%= data.UserId %>" method="POST">
+            <div>
+                <p>Your Full Name:</p>
+                <input type="text" name="fullName" value="<%= data.fullName%>" required>
+            </div>
+
+            <div>
+                <p>Your Address for Delivery:</p>
+                <textarea name="address" required><%= data.address %></textarea>
+            </div>
+
+            <input type="submit" value="Update">
+        </form>
+    </main>
+</body>
+</html>

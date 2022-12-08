@@ -15,13 +15,24 @@ module.exports = (sequelize, DataTypes) => {
       Transaction.hasMany(models.Cart)
       Transaction.belongsToMany(models.Item, {through: models.Cart})
     }
+
+    get priceToCurency() {
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(this.totalPrice)
+    }
   }
   Transaction.init({
     totalPrice: DataTypes.INTEGER,
+    isCompleted: DataTypes.BOOLEAN,
     UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Transaction',
   });
+
+  Transaction.beforeCreate(instance => {
+    instance.totalPrice = 0
+    instance.isCompleted = false
+  })
+
   return Transaction;
 };

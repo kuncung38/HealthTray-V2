@@ -7,6 +7,26 @@
         p {
             font-size: 1.5rem;
         }
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section a {
+            text-decoration: none;
+            padding: 0.4rem 1.5rem;
+            border: 1px solid rgb(6, 223, 6);
+            border-radius: 0.5rem;
+            background-color: rgb(6, 223, 6);
+            color: white;
+            transition: all 0.2s ease;
+            font-size: 2rem;
+        }
+        section a:hover {
+            background-color: white;
+            color: rgb(6, 223, 6);
+        }
     </style>
 </head>
 <body>
@@ -20,7 +40,7 @@
                     </div>
                     <div>
                         <h1> Price: </h1>
-                        <p><%= data.price %></p>
+                        <p><%= data.toCurrency() %></p>
                     </div>
                     <div>
                         <h1> Category: </h1>
@@ -37,5 +57,8 @@
                 <p><%= dateFormatter(data.updatedAt) %></p>
             </div>
         </div>
+        <section>
+            <a href="/admin/item/<%= data.id %>/edit">Edit</a>
+        </section>
     </main>
 </body>

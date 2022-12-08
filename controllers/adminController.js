@@ -3,6 +3,8 @@ const dateFormatter = require('../helpers/dateFormatter');
 
 class AdminController  {
     static showUser(req, res) {
+        // console.log(req.session.user)
+        const sessionId = req.session.User.id
         User.findAll({
             where: {
                 role: 'user'
@@ -10,23 +12,17 @@ class AdminController  {
             include: Profile
         })
         .then(data => {
-            res.render('admin-userList', {data})
+            res.render('admin-userList', {data, sessionId})
         })
     }
 
     static showUserDetail(req, res) {
+        const sessionId = req.session.User.id
         const {UserId} = req.params
 
-        User.findByPk(UserId, {
-            where: {
-                role: 'user'
-            },
-            include: {
-                all: true
-            }
-        })
+        User.getAllUserDataWithId(UserId)
         .then(data => {
-            res.render('admin-checkUser', {data, dateFormatter})
+            res.render('admin-checkUser', {data, dateFormatter, sessionId})
         })
         .catch(err => {
             res.send(err)
@@ -47,6 +43,7 @@ class AdminController  {
     }
 
     static showUserTransaction(req, res) {
+        const sessionId = req.session.User.id
         const {UserId} = req.params
 
         Transaction.findOne({
@@ -56,7 +53,7 @@ class AdminController  {
             include: Item
         })
         .then(data => {
-            res.render('admin-checkTransaction', {data, dateFormatter})
+            res.render('admin-checkTransaction', {data, dateFormatter, sessionId})
         })
         .catch(err => {
             res.send(err)
@@ -66,9 +63,10 @@ class AdminController  {
     //! ITEM SECTION
 
     static showItem(req, res) {
+        const sessionId = req.session.User.id
         Item.findAll()
         .then(data => {
-            res.render('admin-itemList', {data})
+            res.render('admin-itemList', {data, sessionId})
         })
         .catch(err => {
             res.send(err)
@@ -76,7 +74,8 @@ class AdminController  {
     }
 
     static addItemForm(req, res) {
-        res.render('admin-addItemForm')
+        const sessionId = req.session.User.id
+        res.render('admin-addItemForm', {sessionId})
     }
 
     static addItemFormPost(req, res) {
@@ -90,10 +89,39 @@ class AdminController  {
     }
 
     static showItemDetail(req, res) {
+        const sessionId = req.session.User.id
         const id = req.params.itemId
         Item.findByPk(id)
         .then(data => {
-            res.render('admin-checkItem', {data, dateFormatter})
+            res.render('admin-checkItem', {data, dateFormatter, sessionId})
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static editItemForm(req, res) {
+        const sessionId = req.session.User.id
+        const id = req.params.itemId
+        Item.findByPk(id)
+        .then(data => {
+            res.render('admin-editItemForm', {data, sessionId})
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static editItemPost(req, res) {
+        const id = req.params.itemId
+        const {name, category, price, img} = req.body 
+        Item.update({name, category, price, img}, {
+            where: {
+                id
+            }
+        })
+        .then(() => {
+            res.redirect(`/admin/item/${id}`)
         })
         .catch(err => {
             res.send(err)

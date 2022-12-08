@@ -38,7 +38,7 @@
             <tr>
                 <td><%= index+1 %></td> 
                 <td><%= el.name%></td> 
-                <td><%= el.price %></td> 
+                <td><%= el.toCurrency() %></td> 
                 <td><%= el.category %></td> 
                 <td style="display: flex; flex-direction: row; gap: 2rem;">
                     <a href="/admin/item/<%= el.id %>">detail</a>

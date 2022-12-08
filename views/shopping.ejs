@@ -1,0 +1,51 @@
+<%-include("./_partials/headerShopper")-%>
+<body>
+    <main>
+        <h1 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">Choose Your Foods</h1>
+        <h1 style="margin-bottom: 3rem;"> ***You can only buy one food Once per Transaction</h1>
+        
+        <p style="font-size: 1.5rem;">Total Price: <%= transactionData.priceToCurency %></p>
+        <br>
+        <table>
+            <thead>
+                <th style="width: 18rem;">Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Action</th>
+            </thead>
+
+            <% items.forEach (el => { %>
+
+                <tr>
+                    <td><%= el.name %></td>
+                    <td><img src="<%= el.img %>"></td>
+                    <td><%= el.toCurrency() %></td>
+                    <td><%= el.category %></td>
+                    <td>
+                        <div style="display:flex; flex-direction: row; gap: 1rem; justify-content: center; height: 2rem;">
+                            <a href="/shopping/<%= transactionData.id %>/addToCart/<%= el.id %>" style="font-weight: 700; font-size: 2rem;"><p>+</p></a>
+                            
+                            <%  let disabled = 'disabled'
+                                transactionData.Items.forEach(item => {
+                                    if(item.name === el.name) {
+                                        disabled = ''
+                                    }
+                            }) %> 
+
+                            <a href="" style="font-weight: 700; font-size: 2rem; line-height: 1.5rem;" <% disabled %> 
+                                class="deleteButton <% disabled %>">-</a>
+                        </div>
+                    </td>
+                </tr>
+
+            <% }) %> 
+        </table>
+
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <a class="pageButton" style="padding: 1rem 5rem;"
+                href="/checkout">Checkout</a>
+        </div>
+    </main>
+</body>
+</html>

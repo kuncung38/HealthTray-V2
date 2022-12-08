@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/8752/8752096.png">
-    <title>HealthTray - Admin</title>
+    <title>HealthTray</title>
     <style>
         *, html {
             margin: 0;
@@ -32,11 +32,13 @@
             top: 0;
             width: 100%;
             padding: 0.1rem 2rem;
+            z-index: 100;
         }
 
         #HealthTray {
             font-size: 2rem;
             font-weight: 700;
+            color: white;
         }
 
         nav a {
@@ -98,47 +100,45 @@
         th {
             border-bottom: 1px solid rgb(70, 70, 70);
         }
+        img {
+            width: 15rem;
+            max-height: 13rem;
+        }
 
         .pageButton {
             display: flex;
             justify-content: center;
             align-items: center;
+            width: fit-content;
             padding: 0.125rem;
             height: 2rem;
             border: 1px solid grey;
+            border-radius: 0.5rem;
             color:white;
             text-decoration: none;
-            padding: 0.125rem 1rem;
-            background-color: rgb(149, 22, 2);
+            padding: 0.3rem 1rem;
+            background-color: rgb(6, 223, 6);;
             transition: 0.2s;
             position: relative;
+            font-size: 1.5rem;
         }
 
         .pageButton:hover {
-            background-color: rgb(185, 25, 1)
+            color: rgb(6, 223, 6);
+            background-color: white;
         }
 
         .pageButton:active {
             top: 2px;
         }
 
-        input, textarea, select {
-            padding: 0.5rem;
-        }
-
-        textarea {
-            min-height: 4rem;
-            height: fit-content;
-        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="/admin" id="HealthTray">HealthTray</a>
+        <h1 id="HealthTray">HealthTray</h1>
         <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; gap:3rem; margin-right: 5rem;">
-            <a href="/admin">Show User</a>
-            <a href="/admin/item">Show Item</a>
-            <a href="/editProfile/<%= sessionId %>">Edit Profile</a>
+            <a href="/editProfile/<%= UserId %>">Edit Profile</a>
             <a href="/signout" 
                 style="display: flex; justify-content: center; align-items: center; padding:0.5rem 1rem; background-color: #F96666; border-radius: 0.5rem;">
                 <p>Sign Out</p></a>
