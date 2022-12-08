@@ -1,0 +1,56 @@
+<%-include("./_partials/headerAdmin")-%>
+<head>
+    <style>
+        main {
+            margin-top: 0;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div style="width: 40%; display:flex; flex-direction:column; justify-content:center; margin:1rem 5rem;">
+            <div>
+                <h1> Full Name: </h1>
+                <p><%= data.Profile.fullName %></p>
+            </div>
+            <div>
+                <h1> Email: </h1>
+                <p><%= data.email %></p>
+            </div>
+            <div>
+                <h1> Address: </h1>
+                <p><%= data.Profile.address %></p>
+            </div>
+            <div>
+                <h1> Sign Up Date: </h1>
+                <p><%= dateFormatter(data.createdAt) %></p>
+            </div>
+        </div>
+        <br>
+        <h2>Transaction List</h2>
+        <table>
+            <thead>
+                <th>id</th>
+                <th>Total Price</th>
+                <th>Transaction Date</th>
+                <th>Action</th>
+            </thead>
+
+            <% data.Transactions.forEach(el => { %>
+
+                <tr>
+                    <td><%= el.id %></td> 
+                    <td><%= el.totalPrice%></td> 
+                    <td><%= el.updatedAt %></td> 
+                    <td style="display: flex; flex-direction: row; gap: 2rem;">
+                        <a href="/admin/user/<%= el.id %>/transaction">detail</a>
+                    </td>
+                </tr>
+    
+                <% }) %> 
+        </table>
+    </main>
+</body>

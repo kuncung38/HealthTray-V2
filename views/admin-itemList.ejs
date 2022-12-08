@@ -1,0 +1,52 @@
+<%-include("./_partials/headerAdmin")-%>
+<head>
+    <style>
+        main > a {
+            text-decoration: none;
+            padding: 0.1rem 1rem;
+            border: 2px solid #76a55a;
+            border-radius: 0.3rem;
+            background-color: #76a55a;
+            color: white;
+            transition: all 0.2s ease;
+            width: fit-content;
+            padding: 0.75rem 1rem;
+            font-size: 1.3rem;
+        }
+
+        a:hover {
+            background-color: white;
+            color: #76a55a;    
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Item List</h1>
+        <a href="/admin/addItem">Add Item</a>
+        <table>
+            <thead>
+                <th>No. </th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Action</th>
+            </thead>
+
+            <% data.forEach((el, index) => { %>
+
+            <tr>
+                <td><%= index+1 %></td> 
+                <td><%= el.name%></td> 
+                <td><%= el.price %></td> 
+                <td><%= el.category %></td> 
+                <td style="display: flex; flex-direction: row; gap: 2rem;">
+                    <a href="/admin/item/<%= el.id %>">detail</a>
+                    <a href="/admin/item/<%= el.id %>/delete" class="deleteButton">delete</a>
+                </td>
+            </tr>
+
+            <% }) %> 
+        </table>
+    </main>
+</body>

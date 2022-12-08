@@ -1,0 +1,8 @@
+{
+"id": 3,
+"email": "rickowijaya@gmail.com",
+"password": "$2a$10$Y8DwGLyvVksIthuXjJTiYOgHC3wQnQ5i3C83n2P8kyxt4ooCs3Xju",
+"updatedAt": "2022-12-08T05:46:18.751Z",
+"createdAt": "2022-12-08T05:46:18.751Z",
+"role": null
+}

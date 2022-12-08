@@ -1,0 +1,30 @@
+<%-include("./_partials/headerAdmin")-%>
+<body>
+    <main>
+        <h1>User List</h1>
+        <table>
+            <thead>
+                <th>No. </th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Sign up date</th>
+                <th>Action</th>
+            </thead>
+
+            <% data.forEach((el, index) => { %>
+
+            <tr>
+                <td><%= index+1 %></td> 
+                <td><%= el.Profile.fullName%></td> 
+                <td><%= el.email %></td> 
+                <td><%= el.createdAt %></td> 
+                <td style="display: flex; flex-direction: row; gap: 2rem;">
+                    <a href="/admin/user/<%= el.id %>">detail</a>
+                    <a href="/admin/user/<%= el.id %>/delete" class="deleteButton">delete</a>
+                </td>
+            </tr>
+
+            <% }) %> 
+        </table>
+    </main>
+</body>

@@ -1,0 +1,30 @@
+{
+  "name": "healthtray-v2",
+  "version": "1.0.0",
+  "description": "Upgraded version of HealthTray",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuncung38/HealthTray-V2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuncung38/HealthTray-V2/issues"
+  },
+  "homepage": "https://github.com/kuncung38/HealthTray-V2#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "pg": "^8.8.0",
+    "sequelize": "^6.26.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.5.2"
+  }
+}

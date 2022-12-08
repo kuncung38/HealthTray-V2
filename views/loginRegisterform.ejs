@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/8752/8752096.png">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @font-face {
+            font-family: PlayFair;
+            src: url(./Font/PlayfairDisplay-Regular.ttf);
+        }
+
+        :root {
+            --primary-green: #94ce73;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: PlayFair;
+            letter-spacing: 0.1rem;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #76a55a;
+            background-position: center;
+        }
+
+        .container {
+            position: relative;
+            max-width: 430px;
+            width: 100%;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #backToHome {
+            position: absolute;
+            top: 5%;
+            left:5%;
+            width: 13rem;
+            height: 3rem;
+            background-color: rgb(254, 166, 35);
+            text-align: center;
+            line-height:3rem;
+            text-decoration: none;
+            font-size: 1.7rem;
+            font-weight: 800;
+            border-radius: 1rem;
+            color: #2d3727;
+        }
+
+        .container .forms {
+            display: flex;
+            align-items: center;
+            height: 440px;
+            width: 200%;
+            transition: height 0.2s;
+        }
+
+        .container .form {
+            width: 50%;
+            padding: 30px;
+            background-color: #fff;
+            transition: margin-left 0.18s ease;
+        }
+
+        .container.active .login {
+            margin-left: -50%;
+            opacity: 0;
+            transition: margin-left 0.18s ease, opacity 0.15s ease;
+        }
+
+        .container .signup {
+            opacity: 0;
+            transition: opacity 0.09s ease;
+        }
+
+        .container.active .signup {
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+
+        .container.active .forms {
+            height: 600px;
+        }
+
+        .container .form .title {
+            position: relative;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .form .title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height:3px;
+            width: 30px;
+            background-color: var(--primary-green);
+            border-radius: 25px;
+        }
+
+        .form .input-field {
+            margin-top: 30px;
+            position: relative;
+            height: 50px;
+            width: 100%;
+        }
+
+        .input-field input {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            padding: 0 35px;
+            border:none;
+            outline: none;
+            font-size: 16px;
+            border-bottom: 2px solid #ccc;
+            border-top: 2px solid transparent;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .input-field input:is(:focus, :valid) {
+            border-bottom-color: var(--primary-green);
+        }
+
+        .input-field i{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 23px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .input-field input:is(:focus, :valid) ~ i {
+            color: var(--primary-green);
+        }
+
+        .input-field i.icon {
+            left: 0; 
+        }
+
+        .input-field i.showHidePw {
+            right: 0; 
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .form .checkbox-text {
+            display:flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .checkbox-text .checkbox-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-content input {
+            margin: 0 8px -2px 4px;
+            accent-color: var(--primary-green); 
+        }
+
+        .form .text {
+            color:#333;
+            font-size: 14px;
+
+        }
+
+        .form a.text {
+            color:var(--primary-green);
+        }
+
+        .form a {
+            text-decoration: none;
+            border-bottom-width: 0;
+            background-image: linear-gradient(transparent, transparent), linear-gradient(var(--primary-green), var(--primary-green));
+            background-size: 0 1px;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.2s ease-in-out;
+        }
+
+        .form a:hover {
+            background-size: 100% 1px;
+        }
+
+        .form .button {
+            margin-top: 35px;
+        }
+
+        .form .button input {
+            border: none;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            background-color: var(--primary-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button input:hover {
+            background-color: #76a55a;
+        }
+
+        .button input:active {
+            background-color: #465f38;
+        }
+
+        .form .login-signup {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .login-link, .signup-link, #forgot-link {
+            cursor: pointer;
+        }
+
+        @keyframes glow-red {
+            50% {
+                color:indianred;
+                border-color: indianred;
+            }    
+        }
+
+        /* ==================================== */
+        /* Wrong information pop up */
+        #errorBox {
+            position:absolute;
+            top:2.5rem;
+            width: 90vw;
+            max-width: 50rem;
+            height: 3rem;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background-color: rgb(255, 0, 0);
+            border-radius: 0.5rem;
+            color: #daf8c9;
+            opacity: 0.7;
+            font-size: 1.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* ====================================================== */
+        /* Forgot Password Page */
+        #forgot-page {
+            display: none;
+            width:100%
+        }
+
+        #go-back {
+            position: absolute;
+            bottom: 90vh;
+            left:3vh;
+            width: 5rem;
+            height: 2rem;
+            background-color: rgb(254, 166, 35);
+            text-align: center;
+            line-height:2rem;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 5rem;
+            color: #2d3727;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #forgot-logo {
+            position: relative;
+            bottom: 3rem;
+            height: 9rem;
+            text-align: center;
+        }
+
+        #forgot-page-text {
+            text-align: center;
+            line-height: 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2d3727;   
+        }
+
+
+        @media (min-width:640px) {
+            #go-back {
+                left:10vh;
+                width: 10rem;
+                height: 3.5rem;
+                line-height:3.5rem;
+                font-size: 2rem;
+            }
+
+            #forgot-page-text {
+                font-size: 2rem;
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <a href="/" id="backToHome">Back to home</a>
+    <section class="container login-regis">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form action="/login" method="POST">
+                    <div class="input-field">
+                        <input type="text" id="email-login" placeholder="Enter your email" name="email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" id="password-login" placeholder="Enter your password" name="password" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Remember me</label>
+                        </div>
+                        
+                        <a class="text" id="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="submit" id="login-button" value="Login">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Not a member?
+                        <a class="text signup-link">Signup Now</a>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form signup">
+                <span class="title">Registration</span>
+
+                <form action="/register" method="POST">
+                    <!-- Name -->
+                    <div class="input-field"> 
+                        <input type="text" id="regisName" placeholder="Enter your name" name="fullName" required>
+                        <i class="uil uil-user icon"></i>
+                    </div>
+                    <!-- Email -->
+                    <div class="input-field">
+                        <input type="text" id="regisEmail" placeholder="Enter your email" name="email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <!-- Password -->
+                    <div class="input-field">
+                        <input type="password" class="password" id="regisPassword" placeholder="Enter your password" name="password" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <!-- Confirm Password -->
+                    <div class="input-field">
+                        <input type="password" class="password" id="confirmPassword" placeholder="Confirm your password" name="confirmPassword" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="submit" id="registerButton" value="Signup">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Already a member?
+                        <a class="text login-link">Login Now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <% if(error) {%>
+        <section id="errorBox">
+            
+            <% if(error === `login`) { %>
+                <p id="errorText">Email atau passwordnya salah noh!</p>
+            <% } else if (error === `registerPassword`) { %>
+                <p id="errorText">Password kagak cocok bre!</p>
+            <% }  else if (error === `emailExist`) { %>
+                <p id="errorText">Lah email nya udah ada di database</p>
+            <% }  %> %> 
+
+        </section>
+    <% } %> 
+
+
+
+    <!--Forgot Password-->
+    <section id="forgot-page">
+        <a href="#" id="go-back">Back</a>
+        <div>
+            <div class="image-container">
+                <img id="forgot-logo" src="https://cdn-icons-png.flaticon.com/512/8751/8751987.png">
+            </div>
+            <p id="forgot-page-text">Silahkan Registrasi ulang, Makanya Dicatat Lain Kali!</p>
+        </div>
+    </section>
+
+    <script>
+        const container = document.querySelector('.container'),
+            showHidePw = document.querySelectorAll('.showHidePw'),
+            pwFields = document.querySelectorAll('.password'),
+            signUp = document.querySelector('.signup-link'),
+            login = document.querySelector('.login-link'),
+            forgotLink = document.querySelector(`#forgot-link`),
+            forgotPage = document.querySelector(`#forgot-page`),
+            goBack = document.querySelector('#go-back'),
+            emailLogin = document.querySelector('#email-login'),
+            passwordLogin = document.querySelector('#password-login'),
+            loginButton = document.querySelector('#login-button'),
+            errorBox = document.querySelector('#errorBox'),
+            errorText = document.querySelector("#errorText")
+
+        const regisName = document.querySelector('#regisName'),
+            regisEmail = document.querySelector('#regisEmail'),
+            regisPassword = document.querySelector('#regisPassword'),
+            confirmPassword = document.querySelector('#confirmPassword'),
+            registerButton = document.querySelector('#registerButton')
+
+
+        showHidePw.forEach(eyeIcon => {
+            eyeIcon.addEventListener("click", () => {
+                pwFields.forEach(pwField => {
+                    if(pwField.type === 'password') {
+                        pwField.type = 'text';
+
+                        showHidePw.forEach(icon => {
+                            icon.classList.replace("uil-eye-slash", "uil-eye")
+                        })
+                    } else {
+                        pwField.type = 'password';
+
+                        showHidePw.forEach(icon => {
+                            icon.classList.replace("uil-eye", "uil-eye-slash")
+                        })
+
+                    }
+                })
+            })
+        })
+
+        // js code to appear signup and login form
+        signUp.addEventListener('click', () => {
+            container.classList.add('active')
+        })
+
+        login.addEventListener('click', () => {
+            container.classList.remove('active')
+        })
+
+
+        // Forgot Password
+        forgotLink.addEventListener('click', () => {
+            container.style.display = 'none'
+            document.getElementById('backToHome').style.display = 'none'
+            forgotPage.style.display = 'block'
+
+        })
+
+        goBack.addEventListener('click', () => {
+            forgotPage.style.display = 'none'
+            document.getElementById('backToHome').style.display = 'block'
+            container.style.display = 'block'
+        })
+
+
+    </script>
+</body>
+</html>

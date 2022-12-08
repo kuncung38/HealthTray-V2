@@ -1,0 +1,56 @@
+<%-include("./_partials/headerAdmin")-%>
+<style>
+    main {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input, select {
+        width: 95%;
+    }
+
+</style>
+<body>
+    <main>
+        <h1>Add New Item</h1>
+        <form action="/admin/addItem" method="POST">
+            <div>
+                <p>Name</p>
+                <input type="text" name="name">
+            </div>
+
+            <div>
+                <p>Category</p>
+                <select name="category">
+                    <option value="carbs">carbs</option>
+                    <option value="protein">protein</option>
+                    <option value="veggie">veggie</option>
+                    <option value="drink">drink</option>
+                </select>
+            </div>
+
+            <div>
+                <p>Price</p>
+                <input type="number" name="price" min="1000">
+            </div>
+
+            <div>
+                <p>Image</p>
+                <input type="text" name="img">
+            </div>
+
+            <input type="submit" value="Add To List">
+
+
+        </form>
+    </main>
+</body>
+</html>

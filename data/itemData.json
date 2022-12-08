@@ -1,0 +1,98 @@
+[
+    {
+        "name" : "Nasi Pulih",
+        "price" : 5000,
+        "category" : "carbs",
+        "img" : "https://img.freepik.com/free-photo/rice-bowl_1387-181.jpg?w=1060&t=st=1670431081~exp=1670431681~hmac=25b0a90370abcc9ac811c7a2b2e485cf9970bf8814cfc63cb480d1d2aa6cd36a"
+    },
+    {
+        "name" : "Nasi Marah",
+        "price" : 10000,
+        "category" : "carbs",
+        "img" : "https://img.freepik.com/premium-photo/wooden-bowl-with-unpolished-brown-rice-isolated-white-background_71985-4148.jpg?w=1060"
+    },
+    {
+        "name" : "Kentang Tabok",
+        "price" : 10000,
+        "category" : "carbs",
+        "img" : "https://img.freepik.com/free-photo/fresh-flavorful-mashed-potatoes_2829-11563.jpg?w=900&t=st=1670431318~exp=1670431918~hmac=d9ad39a2a3bd8c02fb14e9462da82fcc72f0a3fc06a553966a5b823f5c1dca0e"
+    },
+    {
+        "name" : "Roti Gundam",
+        "price" : 6000,
+        "category" : "carbs",
+        "img" : "https://img.freepik.com/free-photo/bread-slices-placed-wooden-plate-white-wooden-table_1150-28532.jpg?w=900&t=st=1670431416~exp=1670432016~hmac=79a071ad6a831ce3bf37e919882c773a65edd5cb3ddc0b513e35eb588a4121e2"
+    },
+    {
+        "name" : "Bebek DepanGang",
+        "price" : 45000,
+        "category" : "protein",
+        "img" : "https://media.istockphoto.com/id/175194484/id/foto/bebek-panggang-makanan-ala-hongkong.jpg?s=612x612&w=0&k=20&c=NUsQyesSvvDhVnm1uUIFUG9cNbyxexMjyVOccAgEZxU="
+    },
+    {
+        "name" : "Dada Ayam Tebus (dosa)",
+        "price" : 20000,
+        "category" : "protein",
+        "img" : "https://media.istockphoto.com/id/1277369077/id/foto/fillet-dada-ayam-rebus-berada-di-piring-putih-dengan-latar-belakang-putih-lihat-dari-atas.jpg?s=612x612&w=0&k=20&c=YpyHeX_3Yv7iSfF_fs3newc20v2kmCFwCdgHTU2LFG8="
+    },
+    {
+        "name" : "Ikan Gurame Kabar",
+        "price" : 30000,
+        "category" : "protein",
+        "img" : "https://upload.wikimedia.org/wikipedia/commons/f/ff/Gurame_bakar_kecap_1.JPG"
+    },
+    {
+        "name" : "Tahu Tempe BaCem (banyak macem)",
+        "price" : 15000,
+        "category" : "protein",
+        "img" : "https://media.istockphoto.com/id/1298626727/id/foto/makanan-tradisional-indonesia-tempe-tahu-bacem-dari-yogyakarta-dan-jawa-tengah.jpg?s=612x612&w=0&k=20&c=aZ4DXY3Ca6iiUVLmpRKN2qzSXBD4wyljQb4HjyUvcS4="
+    },
+    {
+        "name" : "Brokoli polos",
+        "price" : 10000,
+        "category" : "veggie",
+        "img" : "https://media.istockphoto.com/id/915331918/id/foto/brokoli-dalam-saringan-logam-tua.jpg?s=612x612&w=0&k=20&c=cHDP93KNCHV0V5Bb0a4hpTW12aXrrGVD_Np5ckC3SHE="
+    },
+    {
+        "name" : "Salad Tobat",
+        "price" : 20000,
+        "category" : "veggie",
+        "img" : "https://media.istockphoto.com/id/691448664/id/foto/piring-salad-segar-di-atas-meja-piknik-biru.jpg?s=612x612&w=0&k=20&c=n9uksGNz6dw5Wp7B21xlZeD8iALddugrvBwLJpt-x4w="
+    },
+    {
+        "name" : "Salad Timbun Pedas",
+        "price" : 20000,
+        "category" : "veggie",
+        "img" : "https://github.com/kuncung38/HealthTray/blob/main/gambarkalori/Salad%20Timun%20Pedas.jpg?raw=true"
+    },
+    {
+        "name" : "Sup Wartel",
+        "price" : 10000,
+        "category" : "veggie",
+        "img" : "https://media.istockphoto.com/id/166159432/id/foto/sup-wortel-dalam-mangkuk-putih-dengan-tutup-dan-wortel-di-samping.jpg?s=612x612&w=0&k=20&c=-cowYh_D0gFEZfPeUW-GSxSjUqtdNPONSP4lAAXg5jM="
+    },
+    {
+        "name" : "Susu Tanpa beban",
+        "price" : 8000,
+        "category" : "drink",
+        "img" : "https://github.com/kuncung38/HealthTray/blob/main/gambarkalori/susu%20tanpa%20lemak.jpeg?raw=true"
+    },
+    {
+        "name" : "Susu Basi (Yoghurt)",
+        "price" : 15000,
+        "category" : "drink",
+        "img" : "https://media.istockphoto.com/id/1243439079/id/foto/menuangkan-kefir-buatan-sendiri-buttermilk-atau-yogurt.jpg?s=612x612&w=0&k=20&c=cErCoSQ07gBucrJccIQqljv-wgXvjHzcxzEEVs-lq_4="
+    },
+    {
+        "name" : "Veggie Smoochie",
+        "price" : 20000,
+        "category" : "drink",
+        "img" : "https://media.istockphoto.com/id/626692136/id/foto/smoothie-hijau-campuran-dengan-bahan-bahan-di-atas-meja-kayu.jpg?s=612x612&w=0&k=20&c=WcNxjRKj4KRyYzSine-QWMt7fpQLpNFgGn90A08oIrk="
+    },
+    {
+        "name" : "Kombucha",
+        "price" : 20000,
+        "category" : "drink",
+        "img" : "https://media.istockphoto.com/id/1243048868/id/foto/kombucha-sehat-probiotik-alami-dalam-botol-kaca.jpg?s=612x612&w=0&k=20&c=Z0r7bD6v_cDu9ByxdXXx6KjkmnEtm-QgwjlyTByGn7c="
+    }
+]

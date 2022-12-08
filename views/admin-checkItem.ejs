@@ -1,0 +1,41 @@
+<%-include("./_partials/headerAdmin")-%>
+<head>
+    <style>
+        main {
+            margin-top: 0;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div style="width: 60%; display:flex; flex-direction:column; justify-content:center; margin:1rem auto;">
+            <div style="display:flex; flex-direction: row; width: 100%; gap:2rem">
+                <div style="display: flex; flex-direction: column; justify-content: center; width: 40%;">
+                    <div>
+                        <h1> Name: </h1>
+                        <p><%= data.name %></p>
+                    </div>
+                    <div>
+                        <h1> Price: </h1>
+                        <p><%= data.price %></p>
+                    </div>
+                    <div>
+                        <h1> Category: </h1>
+                        <p><%= data.category %></p>
+                    </div>
+                </div>
+                <div style="width:100%">
+                    <img style="width: 100%;" src="<%= data.img %>" alt="<%= data.name %>">
+                </div>
+
+            </div>
+            <div>
+                <h1> Last Updated: </h1>
+                <p><%= dateFormatter(data.updatedAt) %></p>
+            </div>
+        </div>
+    </main>
+</body>
