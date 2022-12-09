@@ -24,6 +24,13 @@
     <main>
         <h1>Item List</h1>
         <a href="/admin/addItem">Add Item</a>
+        <div>
+            <form style="display: flex; flex-direction: row; gap:1rem"
+                    action="/admin/item" method="GET">
+                <input type="text" name="name" placeholder="search here" style="width: 25%;">
+                <input type="submit" value="search">
+            </form>
+        </div>
         <table>
             <thead>
                 <th>No. </th>

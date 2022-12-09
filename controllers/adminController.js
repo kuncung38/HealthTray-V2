@@ -1,5 +1,6 @@
 const {User, Profile, Transaction, Cart, Item} = require('../models');
 const dateFormatter = require('../helpers/dateFormatter');
+const {Op} = require('sequelize');
 
 class AdminController  {
     static showUser(req, res) {
@@ -64,7 +65,16 @@ class AdminController  {
 
     static showItem(req, res) {
         const sessionId = req.session.User.id
-        Item.findAll()
+        let name = req.query.name
+        if(!name) {
+            name = ``
+        }
+        Item.findAll({
+            where: {
+                name : {
+                    [Op.iLike] : `%${name}%`
+                }
+        }})
         .then(data => {
             res.render('admin-itemList', {data, sessionId})
         })

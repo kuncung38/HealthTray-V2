@@ -19,12 +19,18 @@ router.use(function(req,res,next) {
     }
 })
 
+router.get('/signout', GeneralController.signout)
+
 router.get('/editProfile/:id', GeneralController.editProfile)
 router.post('/editProfile/:id', GeneralController.editProfilePost)
 
 
 
 router.use('/shopping', shopperRouter)
+
+router.get('/checkout', GeneralController.checkout)
+router.post('/payment', GeneralController.checkoutPost)
+
 
 router.use(function(req,res,next) {
     if(req.session.User.role !== 'admin') {
@@ -37,9 +43,6 @@ router.use('/admin', adminRouter)
 
 router.use(bodyparser.urlencoded({extended:false}))
 router.use(bodyparser.json())
-
-router.get('/checkout', GeneralController.checkout)
-router.post('/payment', GeneralController.checkoutPost)
 
 
 module.exports = router

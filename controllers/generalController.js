@@ -118,7 +118,6 @@ class GeneralController {
 
     static checkout (req, res) {
         const {Transaction} = req.session
-        console.log(Transaction)
         res.render('payment', {
             key: PUBLISHABLE_KEY,
             transaction: Transaction
@@ -141,9 +140,9 @@ class GeneralController {
             })
         .then((customer) => {
             return stripe.charges.create({
-                amount: 7000, // Charing Rs 25
+                amount: req.session.Transaction.totalPrice * 100, // Charing Rs 25
                 description: 'Web Development Product',
-                currency: 'USD',
+                currency: 'IDR',
                 customer: customer.id
             });
         })
@@ -158,6 +157,14 @@ class GeneralController {
             console.log(err)
             res.send(err) // If some error occurs
         });
+    }
+
+    static signout(req, res) {
+        delete req.session.User
+        if(req.session.Transaction) {
+            delete req.session.Transaction
+        }
+        res.redirect('/')
     }
 }
 
